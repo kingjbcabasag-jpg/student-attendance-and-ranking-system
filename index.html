@@ -10,11 +10,55 @@
 </head>
 <body>
 
+    <!-- 0. Login & Authentication Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-graduation-cap login-icon"></i>
+                <h2>Teacher Portal</h2>
+                <p>Student Attendance & Ranking System</p>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="login-username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn primary-btn btn-block"><i class="fa-solid fa-right-to-bracket"></i> Log In</button>
+                <p class="auth-toggle">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-id-card"></i>
+                    <input type="text" id="signup-fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="signup-username" placeholder="Choose Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="Choose Password" required>
+                </div>
+                <button type="submit" class="btn success-btn btn-block"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+                <p class="auth-toggle">Already have an account? <a href="#" id="show-login">Log In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application Wrapper -->
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h3><i class="fa-solid fa-graduation-cap"></i> MR. ABUBAKAR</h3>
+                <h3><i class="fa-solid fa-graduation-cap"></i> <span id="teacher-display-name">MR. ABUBAKAR</span></h3>
             </div>
             <ul class="sidebar-menu">
                 <li class="active" data-target="dashboard-section"><i class="fa-solid fa-house"></i> Dashboard</li>
@@ -22,21 +66,25 @@
                 <li data-target="students-section"><i class="fa-solid fa-users"></i> List Students</li>
                 <li data-target="ranking-section"><i class="fa-solid fa-trophy"></i> Rankings</li>
             </ul>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn danger-btn btn-block"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Main Content Area -->
         <main class="main-content">
             <header class="top-bar">
                 <h2>Student Attendance & Ranking System</h2>
                 <div class="user-profile">
-                    <span>Welcome, Teacher</span>
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span id="top-user-greeting">Welcome, Teacher</span>
                 </div>
             </header>
 
             <div class="content-body">
                 
                 <!-- 1. Dashboard Section -->
-                <section id="dashboard-section" class="content-section active">
+                <section id="dashboard-section" class="content-section active page-transition">
                     <div class="stats-grid">
                         <div class="stat-card">
                             <i class="fa-solid fa-user-graduate"></i>
@@ -56,7 +104,7 @@
                 </section>
 
                 <!-- 2. Attendance Section -->
-                <section id="attendance-section" class="content-section">
+                <section id="attendance-section" class="content-section page-transition">
                     <div class="section-header">
                         <h3>Record Attendance</h3>
                         <input type="date" id="attendance-date">
@@ -79,7 +127,7 @@
                 </section>
 
                 <!-- 3. List Students Section -->
-                <section id="students-section" class="content-section">
+                <section id="students-section" class="content-section page-transition">
                     <div class="section-header">
                         <h3>Manage Students</h3>
                         <div class="search-box">
@@ -117,7 +165,7 @@
                 </section>
 
                 <!-- 4. Ranking Section -->
-                <section id="ranking-section" class="content-section">
+                <section id="ranking-section" class="content-section page-transition">
                     <div class="section-header">
                         <h3>Student Rankings (Sorted by Score & Attendance)</h3>
                     </div>

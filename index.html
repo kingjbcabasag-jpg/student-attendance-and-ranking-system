@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance and Ranking System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-graduation-cap"></i> MR. ABUBAKAR</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-target="dashboard-section"><i class="fa-solid fa-house"></i> Dashboard</li>
+                <li data-target="attendance-section"><i class="fa-solid fa-clipboard-user"></i> Attendance</li>
+                <li data-target="students-section"><i class="fa-solid fa-users"></i> List Students</li>
+                <li data-target="ranking-section"><i class="fa-solid fa-trophy"></i> Rankings</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Student Attendance & Ranking System</h2>
+                <div class="user-profile">
+                    <span>Welcome, Teacher</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                
+                <!-- 1. Dashboard Section -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <div>
+                                <h3>Total Students</h3>
+                                <p id="total-students-count">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                            <div>
+                                <h3 id="today-date-label">Today's Attendance</h3>
+                                <p id="present-count">0 Present</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Attendance Section -->
+                <section id="attendance-section" class="content-section">
+                    <div class="section-header">
+                        <h3>Record Attendance</h3>
+                        <input type="date" id="attendance-date">
+                    </div>
+                    <div class="table-container">
+                        <table id="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Status (Present / Absent / Excuse)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="save-attendance-btn" class="btn primary-btn"><i class="fa-solid fa-save"></i> Save Attendance</button>
+                </section>
+
+                <!-- 3. List Students Section -->
+                <section id="students-section" class="content-section">
+                    <div class="section-header">
+                        <h3>Manage Students</h3>
+                        <div class="search-box">
+                            <input type="text" id="search-student-input" placeholder="Search student by name or ID...">
+                        </div>
+                    </div>
+
+                    <!-- Register Student Form -->
+                    <div class="form-card">
+                        <h4>Register New Student</h4>
+                        <form id="add-student-form">
+                            <input type="text" id="student-id" placeholder="Student ID (e.g. 101)" required>
+                            <input type="text" id="student-name" placeholder="Full Name" required>
+                            <input type="number" id="student-score" placeholder="Initial Score / Exam Mark" min="0" max="100" required>
+                            <button type="submit" class="btn success-btn"><i class="fa-solid fa-user-plus"></i> Add Student</button>
+                        </form>
+                    </div>
+
+                    <div class="table-container" style="margin-top: 20px;">
+                        <table id="students-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Total Attendance</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 4. Ranking Section -->
+                <section id="ranking-section" class="content-section">
+                    <div class="section-header">
+                        <h3>Student Rankings (Sorted by Score & Attendance)</h3>
+                    </div>
+                    <div class="table-container">
+                        <table id="ranking-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Attendance Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamically populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
